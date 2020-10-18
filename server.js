@@ -1,5 +1,4 @@
 const http = require("http");
-const { exit } = require("process");
 const debug = require("debug")("node-angular");
 const app = require("./backend/app");
 

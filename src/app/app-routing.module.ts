@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'create', component: PostCreateComponent }
 ];
 
+//import router module to angular module
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

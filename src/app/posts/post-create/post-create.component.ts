@@ -13,12 +13,12 @@ import { PostsService } from '../posts.service';
 export class PostCreateComponent implements OnInit{
   enteredTitle = '';
   enteredContent = '';
-  private mode = 'create';
-  private postId: string;
   post: Post; //should be public
   isLoading = false;
   form: FormGroup;
-  imagePreview: string;
+  private mode = 'create';
+  private postId: string;
+
 
   constructor(
     public postsService: PostsService,
@@ -27,11 +27,10 @@ export class PostCreateComponent implements OnInit{
 
   ngOnInit() {//parent map is an observable
     this.form = new FormGroup({
-      title: new FormControl(null, { //beginning form state
+      'title': new FormControl(null, { //beginning form state
         validators: [Validators.required, Validators.minLength(3)]
       }),
-      content: new FormControl(null, { validators: [Validators.required] }),
-      image: new FormControl(null, { validators: [Validators.required] })
+      'content': new FormControl(null, { validators: [Validators.required] }),
     });
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if (paramMap.has("postId")) {
